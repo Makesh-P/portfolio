@@ -17,12 +17,29 @@
             background-color: #001f4d;
             color: #fff;
             text-align: center;
-            padding: 2rem 0;
+            padding: 1.5rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .profile-img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid white;
         }
 
         .header-content h1 {
-            font-size: 2.5rem;
-            animation: fadeIn 1s ease-in-out;
+            font-size: 2rem;
+            margin: 0;
+        }
+
+        .header-content p {
+            margin: 0;
+            font-size: 1rem;
         }
 
         nav {
@@ -66,9 +83,6 @@
             border-radius: 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             text-align: justify;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
         }
 
         .download-button {
@@ -94,21 +108,12 @@
             background-color: #002b80;
             color: white;
         }
-
-        ul {
-            list-style-type: disc;
-            padding-left: 20px;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
     </style>
 </head>
 <body>
 
     <header>
+        <img src="Picsart_24-09-03_20-30-40-460~2.jpg" alt="Profile Image" class="profile-img">
         <div class="header-content">
             <h1>Makesh P</h1>
             <p>BCA Student & Developer</p>
@@ -125,21 +130,21 @@
         </ul>
     </nav>
 
-    <section id="about" class="fade-section">
+    <section id="about">
         <div class="section-content">
             <h2>About Me</h2>
             <p>I am a passionate <b>BCA student</b> specializing in <b>Python, C++, HTML, and Java</b>. I love working on web applications and learning new technologies to enhance my coding skills.</p>
         </div>
     </section>
 
-    <section id="education" class="fade-section">
+    <section id="education">
         <div class="section-content">
             <h2>Education</h2>
             <p>DRBCCC Hindu College - BCA</p>
         </div>
     </section>
 
-    <section id="skills" class="fade-section">
+    <section id="skills">
         <div class="section-content">
             <h2>Skills</h2>
             <ul>
@@ -153,7 +158,7 @@
         </div>
     </section>
 
-    <section id="projects" class="fade-section">
+    <section id="projects">
         <div class="section-content">
             <h2>Projects</h2>
             <ul>
@@ -164,47 +169,16 @@
         </div>
     </section>
 
-    <section id="resume" class="fade-section">
+    <section id="resume">
         <div class="section-content" style="text-align: center;">
             <h2>Resume</h2>
-            <a href="Makesh_resume.pdf" target="_blank" class="download-button">Download Resume</a>
+            <a href="Makesh_P_Resume.pdf" target="_blank" class="download-button">Download Resume</a>
         </div>
     </section>
 
     <footer>
         <p>&copy; 2025 Makesh P</p>
     </footer>
-
-    <script>
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href').substring(1);
-                const targetElement = document.getElementById(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        const fadeSections = document.querySelectorAll(".fade-section");
-        const fadeInOnScroll = () => {
-            fadeSections.forEach(section => {
-                const sectionTop = section.getBoundingClientRect().top;
-                const windowHeight = window.innerHeight;
-                if (sectionTop < windowHeight - 50) {
-                    section.querySelector(".section-content").style.opacity = "1";
-                    section.querySelector(".section-content").style.transform = "translateY(0)";
-                }
-            });
-        };
-
-        window.addEventListener("scroll", fadeInOnScroll);
-        window.addEventListener("load", fadeInOnScroll);
-    </script>
 
 </body>
 </html>
