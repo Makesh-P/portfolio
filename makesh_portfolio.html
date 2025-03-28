@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Makesh P - Portfolio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #003366;
+            color: white;
+        }
+
+        header {
+            background-color: #001f4d;
+            color: #fff;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .header-content h1 {
+            font-size: 2.5rem;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        nav {
+            background-color: #002b80;
+            text-align: center;
+            padding: 10px 0;
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: background 0.3s ease-in-out;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            transition: color 0.3s ease-in-out;
+        }
+
+        nav ul li a:hover {
+            color: #ffcc00;
+        }
+
+        .section-content {
+            background-color: white;
+            color: black;
+            padding: 2rem;
+            margin: 1rem;
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: justify;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .download-button {
+            background-color: #002b80;
+            color: white;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            border-radius: 20px;
+            display: inline-block;
+            margin-top: 10px;
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .download-button:hover {
+            background-color: #0052cc;
+            transform: scale(1.1);
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem 0;
+            background-color: #002b80;
+            color: white;
+        }
+
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-content">
+            <h1>Makesh P</h1>
+            <p>BCA Student & Developer</p>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#resume">Resume</a></li>
+        </ul>
+    </nav>
+
+    <section id="about" class="fade-section">
+        <div class="section-content">
+            <h2>About Me</h2>
+            <p>I am a passionate <b>BCA student</b> specializing in <b>Python, C++, HTML, and Java</b>. I love working on web applications and learning new technologies to enhance my coding skills.</p>
+        </div>
+    </section>
+
+    <section id="education" class="fade-section">
+        <div class="section-content">
+            <h2>Education</h2>
+            <p>DRBCCC Hindu College - BCA</p>
+        </div>
+    </section>
+
+    <section id="skills" class="fade-section">
+        <div class="section-content">
+            <h2>Skills</h2>
+            <ul>
+                <li>Python</li>
+                <li>C++</li>
+                <li>Java</li>
+                <li>HTML & CSS</li>
+                <li>JavaScript</li>
+                <li>Database Management</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="projects" class="fade-section">
+        <div class="section-content">
+            <h2>Projects</h2>
+            <ul>
+                <li><a href="#">Student Attendance System (QR Code)</a></li>
+                <li><a href="#">Python Chatbot for College Database</a></li>
+                <li><a href="#">HTML Web Portfolio</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="resume" class="fade-section">
+        <div class="section-content" style="text-align: center;">
+            <h2>Resume</h2>
+            <a href="Makesh_P_Resume.pdf" target="_blank" class="download-button">Download Resume</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Makesh P</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        const fadeSections = document.querySelectorAll(".fade-section");
+        const fadeInOnScroll = () => {
+            fadeSections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                if (sectionTop < windowHeight - 50) {
+                    section.querySelector(".section-content").style.opacity = "1";
+                    section.querySelector(".section-content").style.transform = "translateY(0)";
+                }
+            });
+        };
+
+        window.addEventListener("scroll", fadeInOnScroll);
+        window.addEventListener("load", fadeInOnScroll);
+    </script>
+
+</body>
+</html>
